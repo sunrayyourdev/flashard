@@ -1,2 +1,2 @@
-# flashard
-Flashard is my custom flashcard study app, closely inspired by Anki 
+# Flashcard App
+CLI Flashcard app, closely inspired by Anki
