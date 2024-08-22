@@ -1,3 +1,6 @@
 .venv/
 .idea/
 models/__pycache__/
+flashcard.db.bak
+flashcard.db.dat
+flashcard.db.dir
