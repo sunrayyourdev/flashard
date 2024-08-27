@@ -1,6 +1,8 @@
 .venv/
 .idea/
 models/__pycache__/
+__pycache__/
 flashcard.db.bak
 flashcard.db.dat
 flashcard.db.dir
+templates/template.html
