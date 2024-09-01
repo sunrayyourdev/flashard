@@ -1,6 +1,29 @@
 {% extends 'base.html' %}
 {% block title %}Dashboard{% endblock %}
-
+<!-- TODO: Figure out how to load html dynmaically using separate html files in /includes folder  -->
 {% block content %}
     <h1>Flashcards</h1>
+    <div class="button-container">
+        <a href="/new_deck"><button>New Deck</button></a>
+        <a href="/add-card"><button>Add Card</button></a>
+    </div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for deck in decks %}
+        <tr>
+            <td>{{ deck.deck_id }}</td>
+            <td>{{ deck.name }}</td>
+            <td class="action"><a href="">Study</a></td>
+            <!-- TODO: Change href to include deck_id and send to edit_deck route -->
+            <td class="action"><a href="">Edit</a></td>
+            <td class="action"><a href="">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

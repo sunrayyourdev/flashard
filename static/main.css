@@ -8,7 +8,7 @@ body {
 
 h1 {
     text-align: center;
-    margin-top: 20%;
+    margin-top: 20px; /* Adjust as needed */
 }
 
 button {
@@ -35,4 +35,88 @@ button:hover {
 .button-link:visited {
     text-decoration: none;
     color: white;
+}
+
+.button-container {
+    margin: 0 auto;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button-container a {
+    flex: 1;
+    text-decoration: none;
+}
+
+.button-container a:visited {
+    color: white;
+}
+
+.button-container button {
+    width: 150px;
+}
+
+table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    color: white;
+    border: 1px solid white; /* Add outer border to the table */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    border-bottom: 1px solid white; /* Add bottom border to table header */
+}
+
+.action {
+    text-align: center;
+}
+
+/* New styles for the form */
+.form-container {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+}
+
+.form-field:focus {
+    outline: none;
+    border-color: #555;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #333;
+    color: #ddd;
 }

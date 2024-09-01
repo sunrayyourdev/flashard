@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% from "includes/_formHelper.html" import render_field %}
+{% block content %}
+    <h1>{{ deck.name }}</h1>
+    <div class="form-container">
+        <form action="" method="POST">
+            <div class="form-group">
+                {{ render_field(deck_form.name, class="form-field") }}
+            </div>
+            <input type="submit" value="ADD" class="button">
+        </form>
+    </div>
+{% endblock %}

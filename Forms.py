@@ -1,5 +1,4 @@
-from wtforms import Form, validators, StringField, EmailField, PasswordField
+from wtforms import Form, validators, StringField
 
-# TODO: Make forms here
-class ExampleForm(Form):
-    attribute = StringField('', [validators.DataRequired(), validators.Length(min=1, max=150)])
+class DeckForm(Form):
+    name = StringField('Name', [validators.DataRequired(), validators.Length(min=1, max=150)])
