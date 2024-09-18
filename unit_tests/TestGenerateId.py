@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 from unittest import TestCase, main
-from database_functions import generate_id
+from __init__ import generate_id
 
 class TestGenerateId(TestCase):
     def test_generate_id_normal_case(self):

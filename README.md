@@ -9,3 +9,5 @@ A simple flashcard app, inspired by Anki
 - **Database:** SQLite
 
 ## Features
+
+1.
