@@ -5,18 +5,15 @@ class Deck:
         self.__cards = {}
 
     @property
-    def deck_id(self):
+    def id(self):
         return self.__deck_id
 
     @property
     def name(self):
         return self.__name
-
-    @property
-    def name(self):
-        return self.__name
     
-    def rename(self, value):
+    @name.setter
+    def name(self, value):
         self.__name = value
 
     @property

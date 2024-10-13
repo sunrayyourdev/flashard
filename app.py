@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 from models.Card import Card
 from models.Deck import Deck
-from Forms import DeckForm
+from Forms import DeckForm, UpdateDeckForm
 import shelve
+
+
 app = Flask(__name__)
 
 
@@ -33,14 +35,22 @@ def new_deck():
         return render_template('new_deck.html', deck_form=deck_form)
 
 
-# TODO: Change url to use parameter query containing deck_id to GET
-@app.route('/deck', methods=["GET", "PUT"])
-def deck():
-    deck_form = DeckForm(request.form)
-    if request.method == "PUT":
-        pass
+@app.route('/update-deck/<int:deck_id>', methods=["GET", "POST"])
+def update_deck(deck_id):
+    deck_form = UpdateDeckForm(request.form)
+    if request.method == "POST": 
+        with shelve.open('flashcard.db', 'c') as flashcard_db:
+            decks = flashcard_db["Decks"]
+            deck = decks[deck_id] 
+            deck.name = deck_form.new_name.data
+            decks[deck_id] = deck
+            flashcard_db["Decks"] = decks
+            return redirect(url_for('dashboard'))
     else:
-        return render_template('new_deck.html', deck_form=deck_form, deck={})
+        with shelve.open('flashcard.db', 'c') as flashcard_db:
+            deck = flashcard_db["Decks"][deck_id]
+            deck_form.old_name.data = deck.name
+            return render_template('update_deck.html', deck_form=deck_form)
 
 
 # Card Routes
@@ -55,6 +65,11 @@ def generate_id(d: dict) -> int:
         return 1
     last_deck_id = list(d.keys())[-1]
     return last_deck_id + 1
+
+
+def get_deck_with_id(deck_id):
+    with shelve.open('flashcard.db', 'c') as flashcard_db:
+        return flashcard_db["Decks"][deck_id]
 
 
 if __name__ == '__main__':

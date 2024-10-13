@@ -12,7 +12,7 @@ class TestDeck(TestCase):
         self.deck = Deck(1, "Test Deck")
 
     def test_deck_initialization(self):
-        self.assertEqual(self.deck.deck_id, 1)
+        self.assertEqual(self.deck.id, 1)
         self.assertEqual(self.deck.name, "Test Deck")
         self.assertEqual(len(self.deck), 0)
 
