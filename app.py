@@ -51,6 +51,16 @@ def update_deck(deck_id):
             deck = flashcard_db["Decks"][deck_id]
             deck_form.old_name.data = deck.name
             return render_template('update_deck.html', deck_form=deck_form)
+        
+
+@app.route('/delete-deck/<int:deck_id>', methods=["GET", "POST"])
+def delete_deck(deck_id):
+    with shelve.open('flashcard.db', 'c') as flashcard_db:
+        decks = flashcard_db["Decks"]
+        if deck_id in decks:
+            del decks[deck_id]
+            flashcard_db["Decks"] = decks
+    return redirect(url_for('dashboard'))
 
 
 # Card Routes
